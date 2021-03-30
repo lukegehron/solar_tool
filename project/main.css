@@ -1,0 +1,155 @@
+body {
+	margin: 0;
+	background-color: #f0f0f0;
+	color: #444;
+	font-family: Monospace;
+	font-size: 13px;
+	line-height: 24px;
+	overscroll-behavior: none;
+}
+
+a {
+	color: #08f;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+button {
+	cursor: pointer;
+	text-transform: uppercase;
+}
+
+canvas {
+	display: block;
+}
+
+#info {
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+	text-align: left;
+	text-justify: left;
+	/* text-align: center; */
+	/* -moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	pointer-events: none; */
+	z-index: 1; /* TODO Solve this in HTML */
+}
+
+#mdata {
+position: absolute;
+/* display: ; */
+top: 0px;
+/* width: 100%; */
+padding: 10px;
+/* box-sizing: border-box; */
+/* text-align: center; */
+/* -moz-user-select: none;
+-webkit-user-select: none;
+-ms-user-select: none;
+user-select: none;
+pointer-events: none; */
+z-index: 2; /* TODO Solve this in HTML */
+}
+
+a, button, input, select {
+	pointer-events: auto;
+}
+
+.dg.ac {
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	z-index: 2 !important; /* TODO Solve this in HTML */
+}
+
+#overlay {
+	position: absolute;
+	z-index: 2;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height:100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 1;
+	background-color: #000000;
+	color: #ffffff;
+}
+
+#overlay > div {
+	text-align: center;
+}
+
+#overlay > div > button {
+	height: 20px;
+	background: transparent;
+	color: #ffffff;
+	outline: 1px solid #ffffff;
+	border: 0px;
+	cursor: pointer;
+}
+
+#overlay > div > p {
+	color: #777777;
+	font-size: 12px;
+}
+
+.tweakpane{
+				
+	padding: 5px;
+	/* margin: 3px; */
+	box-sizing: border-box;
+	text-align: center;
+	/* -moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	pointer-events: none; */
+	z-index: 1; /* TODO Solve this in HTML */
+}
+
+:root {
+	/* Base colors */
+	--tp-base-background-color: hsl(230deg, 5%, 90%);
+	--tp-base-shadow-color: hsla(0, 0%, 0%, 0.1);
+
+	/* Button-like control colors */
+	--tp-button-background-color: hsl(230deg, 5%, 70%);
+	--tp-button-background-color-active: hsl(230deg, 5%, 55%);
+	--tp-button-background-color-focus: hsl(230deg, 5%, 60%);
+	--tp-button-background-color-hover: hsl(230deg, 5%, 65%);
+	--tp-button-foreground-color: hsl(230deg, 5%, 20%);
+
+	/* Folder colors */
+	/* --tp-folder-background-color: hsl(230deg, 5%, 80%); */
+	--tp-folder-background-color-active: hsl(230deg, 5%, 65%);
+	--tp-folder-background-color-focus: hsl(230deg, 5%, 70%);
+	--tp-folder-background-color-hover: hsl(230deg, 5%, 75%);
+	--tp-folder-foreground-color: var(--tp-input-foreground-color);
+
+	/* Input control colors */
+	--tp-input-background-color: hsl(230deg, 5%, 85%);
+	--tp-input-background-color-active: hsl(230deg, 5%, 70%);
+	--tp-input-background-color-focus: hsl(230deg, 5%, 75%);
+	--tp-input-background-color-hover: hsl(230deg, 5%, 80%);
+	--tp-input-foreground-color: hsl(230deg, 5%, 30%);
+	--tp-input-guide-color: hsla(230deg, 5%, 30%, 10%);
+
+	/* Monitor control colors */
+	--tp-monitor-background-color: var(--tp-input-background-color);
+	--tp-monitor-foreground-color: hsl(230deg, 5%, 60%);
+
+	/* Misc */
+	--tp-label-foreground-color: hsl(230deg, 5%, 50%);
+	--tp-separator-color: hsl(230deg, 5%, 85%);
+}
