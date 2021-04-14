@@ -1,6 +1,6 @@
 // TWEAKPANE Parameter objects
 const PARAMS1 = {
-  model: 2,
+  model: 2, // defaluts display to direct solar
 };
 
 const CLIMATE_PARAMS = {
