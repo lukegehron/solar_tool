@@ -1064,6 +1064,7 @@ function render() {
   raycaster.setFromCamera(mouse, camera);
   var intersects = raycaster.intersectObjects(scene.children);
   if (intersects.length > 0) {
+    // console.log(intersects[0])
 
     if (INTERSECTED != intersects[0].object) {
       if (INTERSECTED != null && INTERSECTED.name != null){
@@ -1078,37 +1079,39 @@ function render() {
         // console.log(INTERSECTED.userData.direct_solar);
         let myDiv = document.getElementById("mdata");
         let txt = "";
-        txt += "MRT: " + INTERSECTED.userData.mrt.toString() + "\n";
-        txt += "Direct Solar: " + INTERSECTED.userData.direct_solar.toString() + "\n";
-        txt += "Location: " + INTERSECTED.userData.loc_i.toString() + ", " + INTERSECTED.userData.loc_j.toString() + "\n";
-        txt += "Glazing Factor " + INTERSECTED.userData.glzfac.toString() + "\n";
-        txt += "MRTPPD: " + INTERSECTED.userData.mrtppd.toString() + "\n";
-        txt += "PMV: " + INTERSECTED.userData.pmv.toString() + "\n";
-        txt += "PPD: " + INTERSECTED.userData.ppd.toString() + "\n";
-        // txt += "PPD2: " + determinePPD(INTERSECTED.userData.pmv) + "\n";
+        txt += "<h1>"
+        txt += "MRT: " + INTERSECTED.userData.mrt.toString() + "<br>";
+        txt += "Direct Solar: " + INTERSECTED.userData.direct_solar.toString() + "<br>";
+        txt += "Location: " + INTERSECTED.userData.loc_i.toString() + ", " + INTERSECTED.userData.loc_j.toString() + "<br>";
+        txt += "Glazing Factor " + INTERSECTED.userData.glzfac.toString() + "<br>";
+        txt += "MRTPPD: " + INTERSECTED.userData.mrtppd.toString() + "<br>";
+        txt += "PMV: " + INTERSECTED.userData.pmv.toString() + "<br>";
+        txt += "PPD: " + INTERSECTED.userData.ppd.toString() + "<br>";
+        // txt += "PPD2: " + determinePPD(INTERSECTED.userData.pmv) + "<br>";
 
         if (TIME_PARAMS.studyType == 1) {
-          txt += "Azmuth Altitute: " + coordinates[0] + "\n";
+          txt += "Azmuth Altitute: " + coordinates[0] + "<br>";
           var mRes = coordinates[0].toString().split(",");
           var mNum = parseFloat(mRes[1])
           txt += "Direct Normal Irradiance: " + directNormalIrradiance(parseFloat(mNum)).toString();
         }
 
-        txt += "MRT: " + INTERSECTED.userData.mrt1.toString() + "\n";
-        // txt += "Direct Solar: " + INTERSECTED.userData.direct_solar.toString() + "\n";
-        txt += "LongwaveMRT: " + INTERSECTED.userData.longwaveMRT.toString() + "\n";
-        txt += "shortwaveMRT: " + INTERSECTED.userData.shortwaveMRT.toString() + "\n";
-        txt += "directShortwaveMRT: " + INTERSECTED.userData.directShortwaveMRT.toString() + "\n";
-        txt += "diffuseShortwaveMRT: " + INTERSECTED.userData.diffuseShortwaveMRT.toString() + "\n";
-        txt += "reflectedShortwaveMRT: " + INTERSECTED.userData.reflectedShortwaveMRT.toString() + "\n";
-        txt += "pmv1: " + INTERSECTED.userData.pmv1 + "\n";
-        txt += "PPD1: " + determinePPD(INTERSECTED.userData.pmv) + "\n";
-        txt += "PPD2: " + determinePPD(INTERSECTED.userData.pmv1) + "\n";
-        txt += "Solar Adjusted MRT: " + parseFloat(parseFloat(INTERSECTED.userData.mrt) + parseFloat(INTERSECTED.userData.mrt1)) + "\n";
-        txt += "Final PPD: " + INTERSECTED.userData.finalPPD.ppd;
+        txt += "MRT: " + INTERSECTED.userData.mrt1.toString() + "<br>";
+        // txt += "Direct Solar: " + INTERSECTED.userData.direct_solar.toString() + "<br>";
+        txt += "LongwaveMRT: " + INTERSECTED.userData.longwaveMRT.toString() + "<br>";
+        txt += "shortwaveMRT: " + INTERSECTED.userData.shortwaveMRT.toString() + "<br>";
+        txt += "directShortwaveMRT: " + INTERSECTED.userData.directShortwaveMRT.toString() + "<br>";
+        txt += "diffuseShortwaveMRT: " + INTERSECTED.userData.diffuseShortwaveMRT.toString() + "<br>";
+        txt += "reflectedShortwaveMRT: " + INTERSECTED.userData.reflectedShortwaveMRT.toString() + "<br>";
+        txt += "pmv1: " + INTERSECTED.userData.pmv1 + "<br>";
+        txt += "PPD1: " + determinePPD(INTERSECTED.userData.pmv) + "<br>";
+        txt += "PPD2: " + determinePPD(INTERSECTED.userData.pmv1) + "<br>";
+        txt += "Solar Adjusted MRT: " + parseFloat(parseFloat(INTERSECTED.userData.mrt) + parseFloat(INTERSECTED.userData.mrt1)) + "<br>";
+        txt += "<a href='#'>Final PPD:</a> " + INTERSECTED.userData.finalPPD.ppd;
+        txt += "</h1>"
 
 
-        // myDiv.innerText = txt;
+        myDiv.innerHTML = txt;
       }
 
       
@@ -2028,8 +2031,10 @@ function setOpacity(opacity) {
 
 function onDocumentMouseMove(event) {
   event.preventDefault();
-  mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-  mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+  // console.log(event.clientY)
+  mouse.x = ((event.clientX - 30) / 738) * 2 - 1;
+  mouse.y = -((event.clientY - 65) / 403) * 2 + 1;
+  // console.log(mouse)
 }
 
 
